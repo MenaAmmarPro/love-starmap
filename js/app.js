@@ -15,15 +15,15 @@
 
 /* Where the sky is drawn from by default. */
 const DEFAULT_LOCATION = {
-  name: "wherever we are",
-  lat: 51.5074,
-  lon: -0.1278
+  name: "Bucharest",
+  lat: 44.4268,
+  lon: 26.1025
 };
 
-/* The star we call ours (an id from js/stars-data.js — try "vega"). */
-const OUR_STAR_ID = "vega";
+/* The star we call ours (Polaris is a quiet favourite). */
+const OUR_STAR_ID = "polaris";
 const OUR_STAR_MESSAGE =
-  "Every time you find this one, I hope you hear me saying it: you are my favourite star.";
+  "For Himena, my Mena. Wherever we are — Romania and Pakistan — this sky is ours. You are my favourite light.";
 
 /* ------------------------------------------------ */
 
