@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b20">
+  <meta name="description" content="The night sky above us, drawn honestly — plus a place to hang your wishes. Made for Mena.">
+  <title>Star Map ✦ for Mena</title>
+  <link rel="canonical" href="https://ammar49-cyber.github.io/love-starmap/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:title" content="Star Map ✦ for Mena">
+  <meta property="og:description" content="The night sky above us, drawn honestly — plus a place to hang your wishes.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/theme-main.js" defer></script>
+  <script src="js/effects.js" defer></script>
+  <script src="js/stars-data.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Star Map">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">✦ Star Map</a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a class="active" href="index.html">The sky</a>
+      <a href="#when">When &amp; where</a>
+      <a href="#wishes">Wishes</a>
+      <a href="https://ammar49-cyber.github.io/loveformymena/">Our little universe ↗</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">Theme</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero sky-hero">
+      <p class="eyebrow">LOOK UP — THIS IS OURS</p>
+      <div class="moon" aria-hidden="true">✦</div>
+      <p class="small-caption">Not a decoration. The real sky, above us.</p>
+      <h1>Our star map, <span>Mena.</span></h1>
+      <p class="hero-description">
+        Pick a date and a place, and this draws the sky you would see looking
+        straight up — the same stars we look at from two different windows.
+        One of them is ours.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#sky">Open the sky <span>✧</span></a>
+        <a class="button button-ghost" href="#wishes">Make a wish ↗</a>
+      </div>
+      <p class="signature">Made with love, just for you <span>♥</span></p>
+    </section>
+
+    <section class="section" id="sky">
+      <p class="eyebrow">STRAIGHT UP FROM WHERE WE STAND</p>
+      <h2>The <span>sky tonight.</span></h2>
+
+      <div class="sky-wrap">
+        <div class="sky-stage">
+          <canvas id="sky" class="sky-canvas" aria-label="Star map of the sky above the chosen location and time"></canvas>
+          <div class="sky-compass" aria-hidden="true">N is up · E is right</div>
+        </div>
+
+        <aside class="star-info" id="star-info" aria-live="polite">
+          <span class="star-info-title" id="star-name">Tap a star</span>
+          <span class="star-info-meta" id="star-meta">Find your way around — N is up.</span>
+          <span class="star-info-note" id="star-note"></span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="when">
+      <p class="eyebrow">SET IT TO US</p>
+      <h2>When &amp; <span>where.</span></h2>
+      <p class="section-lead">
+        Times are in UTC, so the sky stays honest wherever we read this from.
+      </p>
+
+      <div class="controls-grid">
+        <label class="field">
+          <span>Date</span>
+          <input type="date" id="obs-date">
+        </label>
+        <label class="field">
+          <span>Time (UTC)</span>
+          <input type="time" id="obs-time">
+        </label>
+        <div class="field field-button">
+          <span>&nbsp;</span>
+          <button class="button button-ghost" id="obs-now" type="button">Use right now</button>
+        </div>
+        <label class="field">
+          <span>Place name</span>
+          <input type="text" id="obs-locname" maxlength="48" placeholder="wherever we are">
+        </label>
+        <label class="field">
+          <span>Latitude</span>
+          <input type="number" id="obs-lat" step="0.0001" min="-90" max="90" inputmode="decimal">
+        </label>
+        <label class="field">
+          <span>Longitude</span>
+          <input type="number" id="obs-lon" step="0.0001" min="-180" max="180">
+        </label>
+      </div>
+
+      <label class="switch">
+        <input type="checkbox" id="const-toggle" checked>
+        <span>Show constellation lines</span>
+      </label>
+    </section>
+
+    <section class="section" id="wishes">
+      <p class="eyebrow">HANG THEM IN THE SKY</p>
+      <h2>Our <span>wishes.</span></h2>
+      <p class="section-lead">
+        Write a wish and it becomes a little star in our sky — kept in your
+        browser, just for you.
+      </p>
+
+      <form class="wish-form" id="wish-form">
+        <label for="wish-text">A wish</label>
+        <textarea id="wish-text" rows="2" maxlength="200" placeholder="I wish…" required></textarea>
+        <div class="form-actions">
+          <button class="button button-primary" type="submit">Hang it in the sky <span>✧</span></button>
+        </div>
+      </form>
+
+      <ul class="wish-list" id="wish-list"></ul>
+      <p class="settings-note" id="wish-status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with care <span>♥</span> for Mena</p>
+    <p class="footer-small">A little universe of its own ✦</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,216 @@
+/* love-starmap — page-specific styles (built on css/theme.css) */
+
+.sky-hero {
+  min-height: 520px;
+}
+
+.sky-hero .moon {
+  font-size: clamp(3rem, 10vw, 5rem);
+}
+
+.section-lead {
+  max-width: 620px;
+  margin: 0 auto 26px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* ---- sky stage ---- */
+.sky-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 18px;
+  align-items: start;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.sky-stage {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #05060f;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.sky-canvas {
+  display: block;
+  width: 100%;
+}
+
+.sky-compass {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: rgba(200, 210, 255, 0.6);
+  pointer-events: none;
+}
+
+.star-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--pink);
+  border-radius: 16px;
+  background: var(--panel);
+  min-height: 120px;
+}
+
+.star-info-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.star-info-meta {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.star-info-note {
+  color: var(--pink);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ---- controls ---- */
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field > span {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.field input {
+  width: 100%;
+  padding: 11px 13px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font: inherit;
+}
+
+.field input:focus {
+  outline: 2px solid var(--pink);
+  outline-offset: 1px;
+}
+
+.field-button {
+  align-self: end;
+}
+
+.switch,
+.const-inline,
+.const-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px auto 0;
+  color: var(--muted);
+}
+
+input[type="checkbox"] {
+  accent-color: var(--pink);
+  width: 18px;
+  height: 18px;
+}
+
+/* ---- wishes ---- */
+.wish-form {
+  max-width: 620px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.wish-form label {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.wish-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font: inherit;
+  resize: vertical;
+}
+
+.wish-form textarea:focus {
+  outline: 2px solid var(--pink);
+  outline-offset: 1px;
+}
+
+.wish-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px auto 0;
+  max-width: 620px;
+  display: grid;
+  gap: 10px;
+}
+
+.wish-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.wish-star {
+  color: var(--pink);
+}
+
+.wish-text {
+  line-height: 1.6;
+}
+
+.settings-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+  min-height: 1.4em;
+  text-align: center;
+  margin: 14px 0 0;
+}
+
+@media (max-width: 760px) {
+  .sky-wrap {
+    grid-template-columns: 1fr;
+  }
+}
